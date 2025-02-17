@@ -3,14 +3,19 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 import Blogs from './components/Blogs]/Blogs'
+import Header from './components/Header/Header'
+import Bookmarks from './components/Bookmarks/Bookmarks'
 
 function App() {
   const [count, setCount] = useState(0)
 
   return (
     <>
-      <h1 className='text-3xl bg-red-500'>Knowledge Cafe</h1>
-      <Blogs></Blogs>
+      <Header></Header>
+      <div className='flex'>
+        <Blogs></Blogs>
+        <Bookmarks></Bookmarks>
+      </div>
     </>
   )
 }
