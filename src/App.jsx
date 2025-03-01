@@ -14,10 +14,14 @@ function App() {
     // console.log(blog)
   };
 
-  const handleMarkAsRead = time => {
+  const handleMarkAsRead = (id, time) => {
     const newReadingTime = readingTime + time;
     setReadingTime(newReadingTime);
-  }
+    // console.log('Remove Bookmark', id);
+
+    const remaingBookmark = bookmarks.filter(bookmark => bookmark.id!==id);
+    setBookmarks(remaingBookmark);
+ }
 
   return (
     <>
