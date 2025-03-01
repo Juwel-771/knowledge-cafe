@@ -5,14 +5,20 @@ import Header from './components/Header/Header'
 import Bookmarks from './components/Bookmarks/Bookmarks'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [bookmarks, setBookmarks] = useState([]);
+
+  const handleAddToBookmarks = (blog) =>{
+    const newBookmark = [...bookmarks, blog];
+    setBookmarks(newBookmark);
+    // console.log(blog)
+  }
 
   return (
     <>
       <Header></Header>
       <div className='flex'>
-        <Blogs></Blogs>
-        <Bookmarks></Bookmarks>
+        <Blogs handleAddToBookmarks = {handleAddToBookmarks}></Blogs>
+        <Bookmarks bookmarks = {bookmarks} ></Bookmarks>
       </div>
     </>
   )

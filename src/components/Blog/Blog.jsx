@@ -1,9 +1,8 @@
 
-import { prototype } from "postcss/lib/previous-map";
-import PropTypes from "prop-types";
 import { IoBookmark } from "react-icons/io5";
+// import PropTypes from "prop-types";
 
-const Blog = ({blog}) => {
+const Blog = ({blog, handleAddToBookmarks}) => {
     const {title, cover, author, author_img, posted_date, reading_time, hashtags} = blog; 
     return (
         <div className="mb-20">
@@ -18,7 +17,7 @@ const Blog = ({blog}) => {
                 </div>
                 <div>
                     <span> {reading_time} min read</span>
-                    <button className="ml-2 text-2xl text-red-600"> <IoBookmark /> </button>
+                    <button className="ml-2 text-2xl text-red-600" onClick={()=> handleAddToBookmarks(blog)}> <IoBookmark /> </button>
                 </div>
             </div>
             <h2 className="text-4xl">{title}</h2>
@@ -29,8 +28,8 @@ const Blog = ({blog}) => {
     );
 };
 
-// Blog.protoType = {
-//     blog: PropTypes.object.isRequired;
+// Blog.PropTypes = {
+//     blog: propTypes.object
 // }
 
 export default Blog;
