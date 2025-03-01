@@ -2,7 +2,7 @@
 import { IoBookmark } from "react-icons/io5";
 // import PropTypes from "prop-types";
 
-const Blog = ({blog, handleAddToBookmarks}) => {
+const Blog = ({blog, handleAddToBookmarks, handleMarkAsRead}) => {
     const {title, cover, author, author_img, posted_date, reading_time, hashtags} = blog; 
     return (
         <div className="mb-20">
@@ -21,9 +21,12 @@ const Blog = ({blog, handleAddToBookmarks}) => {
                 </div>
             </div>
             <h2 className="text-4xl">{title}</h2>
-            {
-                hashtags.map((hash, idx) => <span key={idx}><a href="">{hash} </a></span>)
-            }
+            <p>
+                {
+                    hashtags.map((hash, idx) => <span key={idx}><a href="">{hash} </a></span>)
+                }
+            </p>
+            <button onClick={()=>handleMarkAsRead(reading_time)} className="text-purple-800 font-bold underline">Mark As Read</button>
         </div>
     );
 };
